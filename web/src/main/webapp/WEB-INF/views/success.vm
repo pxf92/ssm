@@ -1,0 +1,6 @@
+<html>
+	请求成功
+	#if(${message})
+		${message}
+	#end
+</html>

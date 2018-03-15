@@ -1,0 +1,39 @@
+<html>
+
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<script type="text/javascript" src="scripts/jquery-3.2.1.js"></script>
+<script>
+    function submit(){
+        $("#login").submit();
+    }
+</script>
+
+<title>登录</title>
+
+<body >
+	<form id="login" action="/login.html" method="POST">
+	<div class="login">
+		
+		<div style="color:red">$!{message}</div>
+        <table class="cl_1">
+			<tr >
+                <th>用户名：</th>
+                <td><input type="text" name="name" value="$!user.name" placeholder="用户名"/></td>
+            </tr>
+			<tr >
+                <th>密   码：</th>
+                <td><input type="password" name="password" value="$!user.password" placeholder="密码" maxLength="8"/></td>
+            </tr>
+		</table>
+				
+		<div >
+            <input class="btn" type="button" width="10%" value="登录" onclick="return submit();"></input>
+            <a value="" href="/register.htm" target="_blank">注册</a>
+        </div>
+		
+    </div>
+	
+    </form>
+</body>
+
+</html>

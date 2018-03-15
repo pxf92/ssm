@@ -1,0 +1,8 @@
+<html >
+	
+	#if(${message})
+		${message}
+	#else
+		error!
+	#end
+</html>
