@@ -12,5 +12,8 @@
 
     <groupId>pxf.weixin</groupId>
     <artifactId>web</artifactId>
+    <packaging>war</packaging>
+
+    <name>web</name>
 
 </project>

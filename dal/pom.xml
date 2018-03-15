@@ -13,6 +13,9 @@
     <groupId>pxf.weixin</groupId>
     <artifactId>dal</artifactId>
 
+    <packaging>jar</packaging>
+    <name>dal</name>
+
     <build>
         <plugins>
             <plugin>
