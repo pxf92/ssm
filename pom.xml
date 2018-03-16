@@ -6,7 +6,32 @@
 
     <groupId>pxf.weixin</groupId>
     <artifactId>subscription</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <module>service</module>
+        <module>util</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>pxf.weixin</groupId>
+                <artifactId>service</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>pxf.weixin</groupId>
+                <artifactId>dal</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>pxf.weixin</groupId>
+                <artifactId>util</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!-- spring�?要的jar�? -->
