@@ -48,7 +48,7 @@
 		<!-- mybatis配置文件路径 -->
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
 		<!-- 实体类映射文件路径,这里只有一个就写死了，多个可以使用mybatis/*.xml来替代 -->
-		<property name="mapperLocations" value="classpath:mybatis/userMapper.xml" />
+		<property name="mapperLocations" value="classpath:mybatis/*.xml" />
 	</bean>
 
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">

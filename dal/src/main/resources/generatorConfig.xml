@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <context id="test" targetRuntime="MyBatis3" defaultModelType="flat">
-        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
-        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
-        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+        <!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>-->
+        <!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>-->
+        <!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>-->
         <commentGenerator>
             <!-- 这个元素用来去除指定生成的注释中是否包含生成的日期 false:表示保护 -->
             <!-- 如果生成日期，会造成即使修改一个字段，整个实体类所有属性都会发生变化，不利于版本控制，所以设置为true -->
@@ -16,7 +16,7 @@
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost/pxf" userId="root" password="mysqlpoiu">
+                        connectionURL="jdbc:mysql://localhost/pxf" userId="root" password="123456">
         </jdbcConnection>
         <javaTypeResolver>
             <!-- This property is used to specify whether MyBatis Generator should
@@ -33,7 +33,7 @@
 
         <!-- 生成映射文件的包名和位置 -->
         <sqlMapGenerator targetPackage="mybatis"
-                         targetProject="src/main/resouces">
+                         targetProject="src/main/resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
@@ -45,7 +45,7 @@
         </javaClientGenerator>
 
         <!-- 要生成哪些表 -->
-        <table tableName="user_login_history" domainObjectName="userLoginHistory"
+        <table tableName="user" domainObjectName="User"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
