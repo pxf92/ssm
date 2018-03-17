@@ -1,35 +1,32 @@
-package pxf.test;
+package pxf.weixin.service;
 
 import com.alibaba.fastjson.JSON;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.stereotype.Service;
 import pxf.utils.HttpConnClient;
 import pxf.utils.HttpUtil;
 import pxf.weixin.conts.TargetConts;
 import pxf.weixin.conts.WeChatConts;
 import pxf.weixin.model.response.AccessTokenResp;
-import pxf.weixin.model.response.BaseWechatResp;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-//加载配置文件，可以指定多个配置文件，locations指定的是一个数组
-@ContextConfiguration(locations={"classpath:spring-context.xml"})
-public class BaseTest {
-
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
+/**
+ * @Author pxf
+ * @Date 2018/3/17
+ * @Description
+ */
+@Service
+public class CommonService {
+    private static final Logger log = LoggerFactory.getLogger(CommonService.class);
 
     @Autowired
     private HttpConnClient httpConnClient;
 
-    @Test
-    public void aaa(){
+    public AccessTokenResp getAccessToken() {
         try {
             String target = TargetConts.access_token;
 
@@ -40,17 +37,17 @@ public class BaseTest {
             String queryString = HttpUtil.getQueryString(map);
 
             Map<String, String> resp = httpConnClient.get(target, queryString);
+            log.info("获取access_token响应内容：{}",resp);
+
             String respData = resp.get("respData");
-            BaseWechatResp baseWechatResp = JSON.parseObject(respData, AccessTokenResp.class);
+            AccessTokenResp accessTokenResp = JSON.parseObject(respData, AccessTokenResp.class);
 
-            return ;
+            return accessTokenResp;
         } catch (Exception e) {
-            log.error("",e);
+            log.error("获取access_token失败",e);
         }
+
+        return null;
     }
 
-
-    private void bbb(Map map){
-
-    }
 }

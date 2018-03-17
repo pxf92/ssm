@@ -16,7 +16,7 @@
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost/pxf" userId="root" password="123456">
+                        connectionURL="jdbc:mysql://localhost/pxf" userId="root" password="mysqlpoiu">
         </jdbcConnection>
         <javaTypeResolver>
             <!-- This property is used to specify whether MyBatis Generator should
@@ -45,7 +45,7 @@
         </javaClientGenerator>
 
         <!-- 要生成哪些表 -->
-        <table tableName="user" domainObjectName="User"
+        <table tableName="wx_access_token" domainObjectName="AccessToken"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

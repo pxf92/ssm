@@ -18,12 +18,17 @@
 	<!-- 启用spring mvc 注解 -->
     <context:annotation-config />
 	<context:component-scan base-package="pxf.weixin" />
+	<context:component-scan base-package="pxf.utils" />
+
 	<!-- 开启aop -->
 	<aop:aspectj-autoproxy/>
 	
 	<!-- 读取配置文件 -->
-	<context:property-placeholder location="classpath:config.properties"/>
+	<context:property-placeholder location="classpath:jdbc.properties,classpath*:http.properties"/>
+
+	<!-- 导入其他配置 -->
 	<import resource="classpath*:data-source.xml"/>
+	<import resource="classpath:quartz.xml"/>
 
     <!--velocity模板信息配置-->  
     <!--<bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
