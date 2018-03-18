@@ -9,8 +9,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pxf.weixin.conts.LoginConstant;
-import pxf.weixin.model.BaseResult;
-import pxf.weixin.model.User;
+import pxf.weixin.result.BaseResult;
+import pxf.weixin.result.User;
 import pxf.weixin.user.UserService;
 
 import javax.servlet.http.Cookie;

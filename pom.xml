@@ -8,8 +8,11 @@
     <artifactId>subscription</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
+
     <modules>
+        <module>web</module>
         <module>service</module>
+        <module>dal</module>
         <module>util</module>
         <module>common</module>
     </modules>

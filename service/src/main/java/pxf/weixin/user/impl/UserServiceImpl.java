@@ -1,16 +1,13 @@
 package pxf.weixin.user.impl;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pxf.utils.MD5Util;
 import pxf.weixin.dao.UserMapperExt;
-import pxf.weixin.model.BaseResult;
-import pxf.weixin.model.User;
-import pxf.weixin.service.impl.AccessTokenServiceImpl;
+import pxf.weixin.result.BaseResult;
+import pxf.weixin.result.User;
 import pxf.weixin.user.UserService;
 
 @Service

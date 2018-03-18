@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 import pxf.utils.DateUtil;
 import pxf.weixin.conts.WeChatConts;
 import pxf.weixin.dao.AccessTokenMapper;
-import pxf.weixin.model.AccessToken;
-import pxf.weixin.model.response.AccessTokenResp;
+import pxf.weixin.enums.KeyType;
+import pxf.weixin.manager.redis.RedisManager;
+import pxf.weixin.result.AccessToken;
+import pxf.weixin.result.response.AccessTokenResp;
 import pxf.weixin.service.AccessTokenService;
 import pxf.weixin.service.CommonService;
 
@@ -26,9 +28,14 @@ public class AccessTokenServiceImpl implements AccessTokenService {
 
     @Autowired
     private CommonService commonService;
-
+    @Autowired
+    private RedisManager redisManager;
     @Autowired
     private AccessTokenMapper accessTokenMapper;
+    /**
+     * token有效期（秒）
+     */
+    private static final int dalay = 7200;
 
     public AccessTokenResp refreshAccessToken() {
         AccessTokenResp accessToken = null;
@@ -45,13 +52,20 @@ public class AccessTokenServiceImpl implements AccessTokenService {
                     record.setExpireTime(expireTime);
                 } catch (NumberFormatException e) {
                     log.error("时间格式错误："+accessToken.getExpires_in(),e);
-                    record.setExpireTime(DateUtil.addSecond(new Date(), 7200));
+                    record.setExpireTime(DateUtil.addSecond(new Date(), dalay));
                 }
 
                 int i = accessTokenMapper.updateByPrimaryKey(record);
                 if( i==0 ){
                     accessTokenMapper.insert(record);
                 }
+
+                try {
+                    redisManager.setString(KeyType.TOKEN,record.getAccessToken(), dalay);
+                } catch (Exception e) {
+                    log.error("token加入缓存失败",e);
+                }
+
             }
         } catch (Exception e) {
             log.error("获取access_token失败",e);
@@ -61,6 +75,14 @@ public class AccessTokenServiceImpl implements AccessTokenService {
     }
 
     public String getAccessToken() {
+        try {
+            String accessToken = redisManager.getString(KeyType.TOKEN);
+            if(accessToken != null){
+                return accessToken;
+            }
+        } catch (Exception e) {
+            log.error("查询token缓存失败",e);
+        }
 
         AccessToken accessToken = accessTokenMapper.selectByPrimaryKey(WeChatConts.appid);
         //未获取到token或者token失效

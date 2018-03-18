@@ -1,7 +1,7 @@
 package pxf.weixin.user;
 
-import pxf.weixin.model.BaseResult;
-import pxf.weixin.model.User;
+import pxf.weixin.result.BaseResult;
+import pxf.weixin.result.User;
 
 public interface UserService {
 

@@ -37,6 +37,7 @@
             <groupId>pxf.weixin</groupId>
             <artifactId>common</artifactId>
         </dependency>
+
     </dependencies>
 
 </project>

@@ -1,4 +1,4 @@
-package pxf.weixin.model;
+package pxf.weixin.result;
 
 import java.util.Date;
 

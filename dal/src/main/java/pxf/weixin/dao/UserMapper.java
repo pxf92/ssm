@@ -1,6 +1,6 @@
 package pxf.weixin.dao;
 
-import pxf.weixin.model.User;
+import pxf.weixin.result.User;
 
 public interface UserMapper {
     /**

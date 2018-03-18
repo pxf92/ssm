@@ -1,4 +1,4 @@
-package pxf.weixin.model.response;
+package pxf.weixin.result.response;
 
 public class AccessTokenResp extends BaseWechatResp {
 

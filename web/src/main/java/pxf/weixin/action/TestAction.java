@@ -20,8 +20,7 @@ public class TestAction {
     @RequestMapping("getAccessToken")
     @ResponseBody
     public String getAccessToken() {
-        accessTokenService.refreshAccessToken();
-        return "success";
+        return accessTokenService.getAccessToken();
     }
 
 }

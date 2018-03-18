@@ -25,7 +25,7 @@
         </javaTypeResolver>
 
         <!-- 生成模型的包名和位置 -->
-        <javaModelGenerator targetPackage="pxf.weixin.model"
+        <javaModelGenerator targetPackage="pxf.weixin.result"
                             targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
@@ -45,7 +45,7 @@
         </javaClientGenerator>
 
         <!-- 要生成哪些表 -->
-        <table tableName="wx_access_token" domainObjectName="AccessToken"
+        <table tableName="message_reply_config" domainObjectName="MessageReplyConfig"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

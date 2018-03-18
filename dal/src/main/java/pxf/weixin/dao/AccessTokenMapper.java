@@ -1,6 +1,6 @@
 package pxf.weixin.dao;
 
-import pxf.weixin.model.AccessToken;
+import pxf.weixin.result.AccessToken;
 
 public interface AccessTokenMapper {
     /**

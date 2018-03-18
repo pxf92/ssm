@@ -1,6 +1,6 @@
 package pxf.weixin.service;
 
-import pxf.weixin.model.response.AccessTokenResp;
+import pxf.weixin.result.response.AccessTokenResp;
 
 /**
  * @Author pxf

@@ -1,4 +1,4 @@
-package pxf.weixin.model.request;
+package pxf.weixin.result.request;
 
 /**
  * @Author pxf

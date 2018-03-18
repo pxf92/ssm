@@ -1,12 +1,9 @@
 package pxf.weixin.dao;
 
 import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
-import pxf.weixin.model.User;
-
-import java.util.List;
+import pxf.weixin.result.User;
 
 /**
  * @Author pxf

@@ -1,11 +1,13 @@
-package pxf.weixin.model;
+package pxf.weixin.result;
+
+import pxf.weixin.enums.ResultEnum;
 
 /**
  * 基本响应类
  * @author pxf
  * 2017年11月26日
  */
-public class BaseResult {
+public class BaseResult<T> {
 
 	private boolean success;
 	
@@ -13,13 +15,19 @@ public class BaseResult {
 	
 	private String msg;
 	
-	private Object data;
+	private T data;
 
 	public BaseResult(boolean success){
 		this.success = success;
 	}
 	
 	public BaseResult() {
+	}
+
+	public void buildResult(ResultEnum resultEnum){
+		this.success=resultEnum.isSuccess();
+		this.code=resultEnum.getCode();
+		this.msg=resultEnum.getMessage();
 	}
 
 	public boolean isSuccess() {
@@ -46,12 +54,11 @@ public class BaseResult {
 		this.msg = msg;
 	}
 
-	public Object getData() {
+	public T getData() {
 		return data;
 	}
 
-	public void setData(Object data) {
+	public void setData(T data) {
 		this.data = data;
-	}	
-	
+	}
 }

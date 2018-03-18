@@ -3,9 +3,9 @@
 <configuration>  
     <!-- 读入properties配置文件 -->  
     <!-- <properties resource="test-jdbc.properties"/>   -->
-    <!--<settings>  -->
-        <!--<setting name="logImpl" value="LOG4J"/>  -->
-    <!--</settings>-->
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
     <!-- 对象别名 -->  
     <!-- <typeAliases>  
         <typeAlias type="com.lanhuigu.mybatis.entity.User" alias="User"/>  

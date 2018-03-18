@@ -9,7 +9,7 @@ import pxf.utils.HttpConnClient;
 import pxf.utils.HttpUtil;
 import pxf.weixin.conts.TargetConts;
 import pxf.weixin.conts.WeChatConts;
-import pxf.weixin.model.response.AccessTokenResp;
+import pxf.weixin.result.response.AccessTokenResp;
 
 import java.util.HashMap;
 import java.util.Map;

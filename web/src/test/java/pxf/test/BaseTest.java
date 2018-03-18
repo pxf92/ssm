@@ -14,8 +14,10 @@ import pxf.utils.MessageUtil;
 import pxf.utils.enums.MessageFormat;
 import pxf.weixin.conts.TargetConts;
 import pxf.weixin.conts.WeChatConts;
-import pxf.weixin.model.response.AccessTokenResp;
-import pxf.weixin.model.response.BaseWechatResp;
+import pxf.weixin.enums.KeyType;
+import pxf.weixin.manager.redis.RedisManager;
+import pxf.weixin.result.response.AccessTokenResp;
+import pxf.weixin.result.response.BaseWechatResp;
 import pxf.weixin.service.AccessTokenService;
 
 import java.util.HashMap;
@@ -32,6 +34,8 @@ public class BaseTest {
     private HttpConnClient httpConnClient;
     @Autowired
     private AccessTokenService accessTokenService;
+    @Autowired
+    private RedisManager redisManager;
 
     @Test
     public void testGet(){
@@ -72,6 +76,31 @@ public class BaseTest {
 
         log.warn("xml:{}",xml);
 
+    }
+
+    @Test
+    public  void testRedis(){
+
+        try {
+            String token = testToken("111111");
+            if(token != null){
+                testToken("222222");
+            }
+        } catch (InterruptedException e) {
+            log.error("",e);
+        }
+
+    }
+
+    private String testToken(String value) throws InterruptedException {
+        redisManager.setString(KeyType.TOKEN, value,10);
+        String token = null;
+        for(int i=0;i<3;i++){
+            Thread.sleep(2000);
+            token = redisManager.getString(KeyType.TOKEN);
+            log.info("token:{}",token);
+        }
+        return token;
     }
 
 
