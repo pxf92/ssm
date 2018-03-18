@@ -11,7 +11,7 @@
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context-3.0.xsd 
 		http://www.springframework.org/schema/mvc 
-		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd 
+		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd" >
 
@@ -30,7 +30,15 @@
 	<import resource="classpath*:data-source.xml"/>
 	<import resource="classpath:quartz.xml"/>
 
-    <!--velocity模板信息配置-->  
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes" value = "text/html;charset=UTF-8" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!--velocity模板信息配置-->
     <!--<bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
         <property name="resourceLoaderPath" value="/WEB-INF/views/" />&lt;!&ndash; 模板存放的路径 &ndash;&gt;
         &lt;!&ndash; <property name="configLocation" value="classpath:velocity.properties"/> &ndash;&gt;

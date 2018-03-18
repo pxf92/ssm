@@ -15,6 +15,8 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd" >
 
+    <context:property-placeholder location="classpath:quartz.properties"/>
+
     <bean id="accessTokenJob" class="pxf.weixin.job.AccessTokenJob" scope="prototype" />
 
     <bean id="accessTokenJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
@@ -28,10 +30,13 @@
             </map>
         </property>
     </bean>
+
     <bean name="accessTokenJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="accessTokenJobDetail" />
-        <property name="cronExpression" value="30 * * * * ?" />
+        <!-- 当前执行间隔大于2分钟时可以修改qrtz_cron_triggers表,更新定时任务触发时间-->
+        <property name="cronExpression" value="0 * * * * ?" />
     </bean>
+
     <bean id="quartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="configLocation" value="classpath:quartz.properties"/>
         <property name="triggers">

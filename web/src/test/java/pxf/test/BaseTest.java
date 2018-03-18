@@ -10,10 +10,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import pxf.utils.HttpConnClient;
 import pxf.utils.HttpUtil;
+import pxf.utils.MessageUtil;
+import pxf.utils.enums.MessageFormat;
 import pxf.weixin.conts.TargetConts;
 import pxf.weixin.conts.WeChatConts;
 import pxf.weixin.model.response.AccessTokenResp;
 import pxf.weixin.model.response.BaseWechatResp;
+import pxf.weixin.service.AccessTokenService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,13 +26,15 @@ import java.util.Map;
 @ContextConfiguration(locations={"classpath:spring-context.xml"})
 public class BaseTest {
 
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
+    private static Logger log = LoggerFactory.getLogger(BaseTest.class);
 
     @Autowired
     private HttpConnClient httpConnClient;
+    @Autowired
+    private AccessTokenService accessTokenService;
 
     @Test
-    public void aaa(){
+    public void testGet(){
         try {
             String target = TargetConts.access_token;
 
@@ -49,8 +54,25 @@ public class BaseTest {
         }
     }
 
+    @Test
+    public void testGetToken(){
+        log.info("查询token:{}",accessTokenService.getAccessToken());
+    }
 
-    private void bbb(Map map){
+    @Test
+    public void testMessage(){
+
+        String[] params = new String[4];
+        params[0]="123456";//接收方帐号（收到的OpenID）
+        params[1]="666666";//开发者微信号
+        params[2]="20180318";//发送时间
+        params[3]="测试";//回复的消息内容（换行：在content中能够换行，微信客户端就支持换行显示）
+
+        String xml = MessageUtil.convert2xml(MessageFormat.TEXT_MESSAGE, params);
+
+        log.warn("xml:{}",xml);
 
     }
+
+
 }

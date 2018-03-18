@@ -21,6 +21,7 @@ import java.util.Date;
  */
 @Service
 public class AccessTokenServiceImpl implements AccessTokenService {
+
     private static final Logger log = LoggerFactory.getLogger(AccessTokenServiceImpl.class);
 
     @Autowired
@@ -29,7 +30,7 @@ public class AccessTokenServiceImpl implements AccessTokenService {
     @Autowired
     private AccessTokenMapper accessTokenMapper;
 
-    public AccessTokenResp getAccessToken() {
+    public AccessTokenResp refreshAccessToken() {
         AccessTokenResp accessToken = null;
         try {
             accessToken = commonService.getAccessToken();
@@ -58,4 +59,16 @@ public class AccessTokenServiceImpl implements AccessTokenService {
 
         return accessToken;
     }
+
+    public String getAccessToken() {
+
+        AccessToken accessToken = accessTokenMapper.selectByPrimaryKey(WeChatConts.appid);
+        //未获取到token或者token失效
+        if(accessToken == null || accessToken.getExpireTime().before(new Date())){
+            return refreshAccessToken().getAccess_token();
+        }
+
+        return accessToken.getAccessToken();
+    }
+
 }

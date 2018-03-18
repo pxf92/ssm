@@ -9,6 +9,8 @@ import pxf.weixin.model.response.AccessTokenResp;
  */
 public interface AccessTokenService {
 
-    public AccessTokenResp getAccessToken();
+    public AccessTokenResp refreshAccessToken();
+
+    public String getAccessToken();
 
 }
