@@ -1,0 +1,15 @@
+target/
+.svn/
+*.swp
+*.iml
+.gradle
+/local.properties
+.idea/
+/build
+.project
+.settings/
+.classpath
+*.ipr
+*.iws
+*.pyc
+bin/
