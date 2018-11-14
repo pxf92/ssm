@@ -1,0 +1,581 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  
+    <title>广告GIS管理系统</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="广告GIS管理系统"> 
+   	<script src="public/js/jquery-2.1.1.min.js" type="text/javascript"></script> 
+	 <!-- 样式 -->
+    <!--<link rel="stylesheet" href="public/css/custom.css">-->
+    <link rel="stylesheet" href="public/js/modules/bootstrap/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="public/js/modules/bootstrap/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="public/js/modules/bootstrap/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="public/css/theme.css"  >
+	
+    <link rel="stylesheet" href="public/font-awesome/css/font-awesome.css"  >
+    <!-- 插件和样式-->
+	
+    <script src="public/js/modules/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="public/js/modules/bootstrap/bootstrap-select.js"></script>
+    <script type="text/javascript" src="public/js/modules/bootstrap/bootstrap-select-zh_CN.js"></script>
+    <script type="text/javascript" src="public/js/modules/bootstrap/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="public/js/modules/bootstrap/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="public/js/modules/bootstrap/bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="public/js/modules/bootstrap/bootstrapValidator.zh_CN.js"></script>
+				<!--地区选择插件-->
+	<script type="text/javascript" src="public/area-plug/GlobalProvinces_main.js"></script>
+<script type="text/javascript" src="public/area-plug/GlobalProvinces_extend.js"></script>
+<script type="text/javascript" src="public/area-plug/initLocation.js"></script>
+    <!-- 样式 -->
+    <!--<link rel="stylesheet" href="public/css/custom.css">-->
+    <link rel="stylesheet" href="public/js/modules/bootstrap/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="public/js/modules/bootstrap/css/bootstrapValidator.min.css">
+
+	<!--日期插件-->
+ <script src="public/date-plug/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+	
+ <link rel="stylesheet" href="public/css/lgtCss/index.css"  >
+ <link rel="stylesheet" href="public/css/lgtCsspublic.css"  >
+<link rel="stylesheet" href="public/css/lgtCss/AdvePos.css"  >
+</head>
+<script type="text/javascript"> 
+$(document).ready(function(){ 
+//火狐浏览器专有
+   if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){  
+        //左边子栏字体颜色
+        $(".nav-list.collapse li a").css({"color":"white"});
+        //左边栏父选项栏背景
+        //$(".nav-header").css({"background-size":"100% 100%","background-image":"url(public/images/leftbuttoa3.png)"});
+        $(".nav-header").css({"background-size":"100% 100%"});
+        //左边子栏选项卡
+        //$(".nav-list.collapse li a ").css({"background-image":"url(public/images/leftbuttoa2.png)","background-size":"100% 100%"});
+       // $(".nav-list.collapse li").click(function(){
+       //     $(".nav-list.collapse li a").each(function(){
+       //         $(this).css({"background-image":"url(public/images/leftbuttoa2.png)","background-size":"100% 100%"});
+       //     });
+       //     $(this).find(' > a').css({"background-image":"url(public/images/leftbuttoa1.png)","background-size":"100% 100%"});
+       // });
+   }  
+   $('span.fa.fa-caret-right').css({"padding-right":"62px"});
+
+var browser=navigator.appName 
+var b_version=navigator.appVersion 
+var version=b_version.split(";"); 
+var trim_Version=version[1].replace(/[ ]/g,""); 
+
+if(browser=="Microsoft Internet Explorer" && trim_Version != false) 
+{ 
+//$(".nav-header").css({"filter":"none"});
+
+//$(".navbar-default").css({"filter":"none"});
+}
+});
+</script>
+<body class="new-body" >
+
+    <!-- Demo page code -->
+    <script type="text/javascript">
+
+
+
+    $(function() {
+
+	if('<?php echo $_SESSION['userType'];?>' == 'customer'){
+		$("#posList_href").trigger("click");
+		return false;
+	}
+	
+        var match = document.cookie.match(new RegExp('color=([^;]+)'));
+        if (match) var color = match[1];
+        if (color) {
+            $('body').removeClass(function(index, css) {
+                return (css.match(/\btheme-\S+/g) || []).join(' ')
+            })
+            $('body').addClass('theme-' + color);
+        }
+
+        $('[data-popover="true"]').popover({
+            html: true
+        });
+        //
+        var uls = $('.sidebar-nav > ul > *').clone();
+        uls.addClass('visible-xs');
+        $('#main-menu').append(uls.clone());
+       
+	   
+	   $('#testa').click(function(){
+	$.ajax({															
+		type: "POST",									
+		dataType: "json",								
+		async: false,									
+		url: "__APP__/Home/test1/index1",		
+		data: { },						
+		success: function (data) {	
+
+		var json = JSON.stringify(data);
+		alert(json)	
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown){
+			alert("操作失败")
+		}, 
+		}); 
+	   });
+	   
+	   
+
+$("#edit_pwd_exc").click(function(){
+	var old_pwd = $('#old_pwd').val();
+	var pwd = $("#edit_pwd").val();
+	var pwdYes = $("#edit_pwdYes").val();
+	var id = '<?php echo $_SESSION['id'];?>';
+	if(pwd != pwdYes){
+		alert("两次密码不一致")
+		return false;
+	}
+	if(pwd==''){
+		alert('请输入密码');
+		return false;
+	}
+	
+	
+	
+	
+	
+	$.ajax({															
+		type: "POST",									
+		dataType: "json",								
+		async: false,									
+		url: "__APP__/Home/Index/edit_pwd",		
+		data: {'old_pwd':old_pwd,'pwd':pwd,'id':id,'opera':'editPwd','user_type':'<?php echo $_SESSION['userType']?>'},	
+		success: function (data) {	
+		
+			if(data == "yes"){
+				alert("修改成功")
+				location.reload();
+				return false;
+			}else if(data == "no"){
+				
+				alert("数据修改失败")
+				return false;
+			}else if(data=='old'){
+				alert('原密码错误');
+				return false;
+			}
+			alert(data)
+		},
+		error: function (XMLHttpRequest, textStatus, errorThrown){
+		alert("操作失败")
+		}, 
+		}); 
+	
+});
+	   
+	   
+	   
+	$('#myUser_info').click(function(){
+		var ulCss = $('.dropdown-menu').css('display');
+			if(ulCss != 'none'){
+				$('.dropdown-menu').css({'display':'none'});
+			}else{
+				$('.dropdown-menu').css({'display':'inline'});
+			}
+	});
+	
+	
+    });
+    </script>
+    <script type="text/javascript" >
+        function changeFrameHeight(){
+        var ifm= document.getElementById("iframepage"); 
+        ifm.height=document.documentElement.clientHeight-60;
+        }
+        window.onresize=function(){  
+        changeFrameHeight();  
+        } 
+
+</script>
+<style>
+#main-menu li a:hover {color: white}
+#main-menu img{    background-color: white;}
+</style>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if IE]>
+        <script src="public/js/html5shiv.min.js"></script>
+    <![endif]-->
+    <!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
+    <!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
+    <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
+    <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
+    <!--[if (gt IE 9)|!(IE)]><!-->
+    <!--<![endif]-->
+	
+    <!-- 頭部 -->
+    <div class="navbar navbar-default" style="padding: 0px;background-image:  url(public/images/webimage/head1.png);" role="navigation">
+        <div class="navbar-header" style="width: 10%;">
+            <div>&nbsp&nbsp&nbsp</div>
+            <img src="public/images/webimage/logo-umdw.png" style="background-size: 100% 100%;height:100%;width:100%">            
+        </div>
+        
+        <div class="navbar-collapse collapse" style="height: 1px;">
+ 
+            <ul id="main-menu" class="nav navbar-nav navbar-right">
+                <li class="dropdown hidden-xs">
+
+                    <a class="dropdown-toggle" id='myUser_info' data-toggle="dropdown">
+                       <?php if($_SESSION['userType']!="adminUser"):?>
+                            <span class="glyphicon glyphicon-user padding-right-small" style="position:relative;top: 3px;color: #434343;"></span>
+                     <?php endif;?>
+                       <?php if($_SESSION['userType']=="adminUser"):?>
+                          <span class="glyphicon glyphicon-user padding-right-small" style="position:relative;top: 3px;color: red;"></span>
+                     <?php endif;?>
+                   
+                      
+
+                 <?php echo $_SESSION['username'];?>
+                        <!-- <i class="fa fa-caret-down"></i> -->
+                    </a>
+                   <!--  <ul class="dropdown-menu">
+                       
+                       <li><a tabindex="-1" href="__APP__/Home/login/logout">注销</a></li>
+                                           <li><a href="#" target="maincontent"><?php echo $_SESSION['cp_code'];?></a></li>
+                   </ul> -->
+					
+					
+                </li>
+				<div style="float:left;width: 1px;height: 25px; backgroun: ;d: #000;margin-top:7%"></div> 
+                <li class="dropdown hidden-xs">
+                        <li>
+                            <img src="public/images/webimage/cancel.png" style="margin-top: 36%;background-color: transparent;">
+                            <a tabindex="-1" href="__APP__/Home/login/logout">注销</a>
+						</li>
+                </li>
+				<div style="float:left;width: 1px;height: 25px; background: #000;margin-top:7%"></div> 
+                <li class="dropdown hidden-xs">
+
+                        <li>
+						<img src="public/images/webimage/modifypwd.png" style="margin-top: 25%;background-color: transparent;">
+						
+						<a style='cursor:pointer;'  data-toggle="modal" data-target="#editPwdBox" id='editPwd'>修改密码</a>
+						
+						</li>
+
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+   <hr style="border:none;border-top:3px solid #00BFFF;padding:  0px;margin: 0px;">
+   
+   <div id="body-main" style="background-image:url(public/images/webimage/body-img.jpg);width="100%" height="100%" style="z-index:-
+
+100;position:absolute;left:0;top:0"><!-- 主页面背景适应全屏浏览器-->
+   
+    <div class="sidebar-nav" >
+		
+        <ul >
+			<?php if($_SESSION['userType']!="customer"):?>
+            <!-- 主頁 -->
+            <li class="border-li" style=" border-top: 1px solid #F2F2F2;">
+                <a  data-target=".dashboard-menu" class="nav-header" data-toggle="collapse" style=" padding-right:26.5px;"><!--距离右边框26.5px长-->
+				<img src="public/images/webimage/ican1.png" id="test" style=" width: 30px;">
+                <i class="glyphicon glyphicon-users" >主页</i><!-- <i class="fa fa-collapse"></i> -->&nbsp&nbsp&nbsp&nbsp
+                <img src="public/images/webimage/ican-left.png" style=" width: 30px;"/>
+                </a>
+            </li>
+            <li>
+                <ul class="dashboard-menu nav nav-list collapse">
+                	<?php if($_SESSION['userType']!="adminUser"):?>
+                    <li><a href="__APP__/Home/Index/main" target="maincontent"><span class="fa fa-caret-right"></span>主页</a></li>
+                    <?php endif;?>
+                    <?php if($_SESSION['userType']=="adminUser"):?>
+					<li><a href="__APP__/Home/DataSummary/index"  target="maincontent" ><span class="fa fa-caret-right" style=" padding-left:4px;"></span>数据汇总</a></li> 
+                    <?php endif;?>
+                </ul>
+            </li>
+			<?php endif;?>
+			 <?php if($_SESSION['userType']!="adminUser"):?>
+            <li data-popover="true" data-content="" rel="popover" data-placement="right" class="border-li" >
+                <a  data-target=".Point-menu" class="nav-header collapsed" data-toggle="collapse">
+				    <img src="public/images/webimage/ican2.png" id="test" style=" width: 30px;">
+                    <i class="glyphicon glyphicon-Point">点位查询</i><!-- <i class="fa fa-collapse"></i> -->
+                    <img src="public/images/webimage/ican-left.png" style=" width: 30px;"/>
+                </a>
+            </li>
+            <li>
+                <ul class="Point-menu nav nav-list collapse">
+                    <li><a href="__APP__/Home/Advertilist/index" target="maincontent"><span class="fa fa-caret-right"></span><span id="posList_href">广告位列表</span></a></li>
+                    <li><a href="__APP__/Home/MapSeach/index" target="maincontent" ><span  style=" padding-left:68px;"></span> 广告位GIS地图</a></li>
+                   
+                </ul>
+            </li>
+			<?php if($_SESSION['userType']!="customer"):?>
+            <li data-popover="true" data-content="" rel="popover" data-placement="right" class="border-li">
+                <a  data-target=".Resources-menu" class="nav-header collapsed" data-toggle="collapse">
+				<img src="public/images/webimage/ican3.png" id="test" style=" width: 30px;">
+                    <i class="glyphicon glyphicon-Resources"></i>资源管理<!-- <i class="fa fa-collapse"></i> -->
+        <img src="public/images/webimage/ican-left.png" style=" width: 30px;"/>
+                </a>
+            </li>
+            <li>
+                <ul class="Resources-menu nav nav-list collapse">
+                      <li><a href="__APP__/Home/BuildManage/index" target="maincontent"><span class="fa fa-caret-right"></span> 资源管理</a></li>
+                       <li><a href="__APP__/Home/MapManage/index" target="maincontent" ><span class="fa fa-caret-right"></span> 资源GIS定位</a></li>
+					  <li><a href="__APP__/Home/AdvePos/index" target="maincontent"><span class="fa fa-caret-right"></span> 广告位管理</a></li>
+                      <li><a href="__APP__/Home/Approval/index"  target="maincontent"><span class="fa fa-caret-right"></span> 广告位预订</a></li>
+                      <li><a href="__APP__/Home/Approval/main"  target="maincontent"><span class="fa fa-caret-right"></span> 广告位审批</a></li>
+                    <li><a href="__APP__/Home/TreatyManage/index"  target="maincontent"><span class="fa fa-caret-right"></span> 客户合同管理</a></li>
+                   
+                 
+         <!--  <li><a href="__APP__/Home/AdveConstruct/index" target="maincontent"><span class="fa fa-caret-right"></span> 广告位施工管理</a></li> -->
+                   
+                    
+                   <!--  <li><a href="__APP__/Home/Test/A4" target="maincontent"><span class="fa fa-caret-right"></span> 广告位绑定</a></li> -->
+                    
+                  
+                    
+                     
+                </ul>
+            </li>
+
+            <li data-popover="true" data-content="" rel="popover" data-placement="right" class="border-li">
+                <a href="#" data-target=".install-menu" class="nav-header collapsed" data-toggle="collapse">
+				<img src="public/images/webimage/ican4.png" id="test" style=" width: 30px;">
+                    <i class="glyphicon glyphicon-install"></i>安装管理<!-- <i class="fa fa-collapse"></i> -->
+        <img src="public/images/webimage/ican-left.png" style=" width: 30px;"/>
+                </a>
+            </li>
+            <li>
+                <ul class="install-menu nav nav-list collapse">
+					
+                    <li><a href="__APP__/Home/AdveConstruct/index" target="maincontent"><span class="fa fa-caret-right"></span> 广告位施工管理</a></li>
+                  <!--   <li><a href="__APP__/Home/Advertilist/content" target="maincontent" ><span class="fa fa-caret-right"></span> 广告位内容管理</a></li> -->
+                     <li><a href="__APP__/Home/Survey/index"  ><span class="fa fa-caret-right" style=" padding-left:5px;"></span>监测报告</a></li>
+                     
+                </ul>
+            </li>
+            
+        <li data-popover="true" data-content="" rel="popover" data-placement="right" class="border-li">
+                <a href="#" data-target=".install-menu" class="nav-header collapsed" data-toggle="collapse">
+				<img src="public/images/webimage/ican4.png" id="test" style=" width: 30px;">
+                    <i class="glyphicon glyphicon-install"></i>客流管理<!-- <i class="fa fa-collapse"></i> -->
+        <img src="public/images/webimage/ican-left.png" style=" width: 30px;"/>
+                </a>
+            </li>
+            <li>
+                <ul class="install-menu nav nav-list collapse">
+					
+                    
+                    <li><a href="__APP__/Home/AdvePT/index2" target="maincontent"><span class="fa fa-caret-right"></span>  设备管理</a></li>
+                    <li><a href="__APP__/Home/AdvePT/index" target="maincontent"><span class="fa fa-caret-right"></span>  客流管理</a></li>
+                    <li><a href="__APP__/Home/MapSeach/index" target="maincontent"><span class="fa fa-caret-right"></span>  GIS地图 </a></li>
+                  <!--   <li><a href="__APP__/Home/Advertilist/content" target="maincontent" ><span class="fa fa-caret-right"></span> 广告位内容管理</a></li> -->
+                    <!--   <li><a href="__APP__/Home/Survey/index"  ><span class="fa fa-caret-right"></span>客流展示</a></li>-->
+                   <!--   <li><a href="__APP__/Home/Survey/baogao" ><span class="fa fa-caret-right"></span>监测报告</a></li> -->
+                     
+                </ul>
+            </li>
+          
+           <li data-popover="true" data-content="" rel="popover" data-placement="right" class="border-li">
+                <a href="#" data-target=".install-menu" class="nav-header collapsed" data-toggle="collapse">
+				<img src="public/images/webimage/ican4.png" id="test" style=" width: 30px;">
+                    <i class="glyphicon glyphicon-install"></i>智能锁具<!-- <i class="fa fa-collapse"></i> -->
+        <img src="public/images/webimage/ican-left.png" style=" width: 30px;"/>
+                </a>
+            </li>
+            
+            
+            <li data-popover="true" data-content="" rel="popover" data-placement="right" class="border-li">
+                <a href="#" data-target=".install-menu" class="nav-header collapsed" data-toggle="collapse">
+				<img src="public/images/webimage/ican4.png" id="test" style=" width: 30px;">
+                    <i class="glyphicon glyphicon-install"></i>电流监测<!-- <i class="fa fa-collapse"></i> -->
+        <img src="public/images/webimage/ican-left.png" style=" width: 30px;"/>
+                </a>
+            </li>
+            
+			<?php endif;?>
+
+           
+                
+		  
+			<?php if($_SESSION['userType']=="adveUser"):?>
+            <li class="border-li">
+                <a href="#" data-target=".legal-menu" class="nav-header collapsed" data-toggle="collapse">
+				<img src="public/images/webimage/ican5.png" id="test" style=" width: 30px;">
+                    <i class="glyphicon glyphicon-system"></i>系统设置<!-- <i class="fa fa-collapse"></i> -->
+         <img src="public/images/webimage/ican-left.png" style=" width: 30px;"/>
+                </a>
+                
+            </li>
+
+             <li>
+                <ul class="legal-menu nav nav-list collapse">
+				
+                 <!--    <li><a href="__APP__/Home/Test/A5" target="maincontent"><span class="fa fa-caret-right"></span> 广告位分类管理</a></li> -->
+                    <!-- <li><a href="__APP__/Home/SysroleManage/index"  target="maincontent" ><span class="fa fa-caret-right"></span> 系统角色管理</a></li> -->
+                     <!-- <li><a href="__APP__/Home/SysuserManage/index"  target="maincontent" ><span class="fa fa-caret-right"></span> 系统用户管理</a></li> -->
+                    <!-- <li><a href="__APP__/Home/CustManage/index"  target="maincontent"><span class="fa fa-caret-right"></span> 客户管理</a></li> -->
+				
+					<li><a href="__APP__/Home/adTroleManage/index"  target="maincontent" ><span class="fa fa-caret-right"></span> 员工角色管理</a></li>
+                     <li><a href="__APP__/Home/StaffManage/index"  target="maincontent"><span class="fa fa-caret-right"></span> 员工用户管理</a></li>
+                       <li><a href="__APP__/Home/Mediaclass/index"  target="maincontent"><span class="fa fa-caret-right" style=" padding-left:4px;"></span>媒体类型管理</a></li>
+                     <li><a href="__APP__/Home/CustManage/index"  target="maincontent"><span class="fa fa-caret-right"></span> 客户管理</a></li>
+		            <li><a href="__APP__/Home/Remind/index"  target="maincontent"><span class="fa fa-caret-right"></span> 设置提醒时间</a></li>		
+                </ul>
+            </li>
+            <?php endif;?>
+
+			<?php endif;?>
+            <?php if($_SESSION['userType']=="adminUser"):?>
+             <li>
+                <a href="#" data-target=".legal-menu" class="nav-header collapsed" data-toggle="collapse" >
+                    <i class="glyphicon glyphicon-analysis" style=" padding-left:42px;">数据分析</i><!-- <i class="fa fa-collapse"></i> -->
+                </a>
+                
+            </li>
+
+             <li>
+                <ul class="legal-menu nav nav-list collapse">
+					<!-- <li><a href="__APP__/Home/DataSummary/index"  target="maincontent" ><span class="fa fa-caret-right"></span>数据汇总X</a></li> -->
+					<li><a href="__APP__/Home/MediaResourceStatistics/index"  target="maincontent" ><span class="fa fa-caret-right"></span> 媒体资源统计</a></li>
+                     <li><a href="__APP__/Home/AdverPosStatistics/index"  target="maincontent"><span class="fa fa-caret-right" ></span> 广告位统计</a></li>
+                       <li><a href="__APP__/Home/Statiscompany/index"  target="maincontent"><span class="fa fa-caret-right" style=" padding-left:4px;"></span>广告公司统计</a></li>
+                     <li><a href="__APP__/Home/MapManage/index" target="maincontent" ><span class="fa fa-caret-right"></span> 资源GIS定位</a></li>
+		          	
+                </ul>
+            </li>
+            <li>
+                <a href="#" data-target=".manage-menu" class="nav-header collapsed" data-toggle="collapse">
+				<img src="public/images/webimage/ican6.jpg" id="test" style=" width: 30px;">
+                    <i class="glyphicon glyphicon-dashboards"></i>系统管理<!-- <i class="fa fa-collapse"></i> -->
+                </a>
+                
+            </li>
+             <li>
+                <ul class="manage-menu nav nav-list collapse">
+                  
+                    <li><a href="__APP__/Home/SysroleManage/index"  target="maincontent" ><span class="fa fa-caret-right"></span> 系统角色管理</a></li>
+                     <li><a href="__APP__/Home/SysuserManage/index"  target="maincontent" ><span class="fa fa-caret-right"></span> 系统用户管理</a></li>
+                    <li><a href="__APP__/Home/Advertiseruser/index"  target="maincontent"><span class="fa fa-caret-right"></span> 用户管理</a></li>
+					<li><a href="__APP__/Home/BuildTypeManage/index"  target="maincontent"><span class="fa fa-caret-right"></span> 系统参数</a></li>
+					<li><a href="__APP__/Home/ContentTypeManage/index"  target="maincontent"><span class="fa fa-caret-right"></span> 禁登广告类型</a></li>
+
+                    <!-- <li><a href="__APP__/Home/StaffManage/index"  target="maincontent"><span class="fa fa-caret-right"></span> 员工用户管理</a></li> -->
+                   
+                    <!-- <li><a href="__APP__/Home/Test/A10" target="maincontent"><span class="fa fa-caret-right"></span> 地区管理</a></li> -->
+                    <!-- <li><a href="__APP__/Home/NoticeManage/index" target="maincontent" ><span class="fa fa-caret-right"></span> 软文设置</a></li> -->
+                    <li><a href="__APP__/Home/MakeCode/index" target="maincontent"><span class="fa fa-caret-right"></span> 广告牌条码发放</a></li>
+					<!-- <li><a href="__APP__/Home/DataSummary/index"  target="maincontent" ><span class="fa fa-caret-right"></span> 数据汇总</a></li> -->
+					<!-- <li><a href="__APP__/Home/MediaResourceStatistics/index"  target="maincontent" ><span class="fa fa-caret-right"></span> 媒体资源管理</a></li> -->
+					<!-- <li><a href="__APP__/Home/AdverPosStatistics/index"  target="maincontent" ><span class="fa fa-caret-right"></span> 广告位统计</a></li> -->
+					<!-- <li><a href="__APP__/Home/AdverCompanyStatistics/index"  target="maincontent" ><span class="fa fa-caret-right"></span> 广告公司统计</a></li> -->
+                </ul>
+            </li>
+		<?php endif;?>
+           
+
+           
+        </ul>
+		
+    </div>
+    <!-- <div class="main-content" style=" position: relative; overflow: auto;  margin-left: 240px; ">
+        <iframe name = "maincontent"  id=" maincontent"  src="__APP__/Home/Index/main" Scrolling ="no"  width="100%" height="850">
+        
+    </div> -->
+     <div  style=" position: relative; overflow: auto; border:1px; margin-left: 240px;">
+
+	 <?php if($_SESSION['userType']=="adveUser"){
+				$goPage = 'index/main';
+			}elseif($_SESSION['userType']=="adminUser"){
+				$goPage = 'DataSummary/index';
+			}
+	 ?>
+        <iframe id= "iframepage" width="100%"  name="maincontent"  scrolling="auto" frameborder="0"  src="main.html"    onload="changeFrameHeight()"></iframe>
+        
+    
+      
+    </div>
+	
+	
+	</div>
+	
+<!-- <div style='height: 30px;text-align: center;line-height: 30px;'> -->
+<!--<div style="height: 30px; width:90%;text-align: center;line-height: 30px; background-color:#eee9eb; position:fixed; bottom:0px;margin-left:245px">
+		广西传睿科技有限公司©版权所有   桂ICP备17002930号-2
+</div>
+-->
+
+
++</body>
+
+
+</html>
+
+	 <!--修改密码-->
+<div class="modal fade bs-example-modal-lg" id="editPwdBox" tabindex="-1" role="dialog" aria-labelledby="OpenModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header" >
+				修改密码
+			</div>
+			<div class="modal-body">
+<div class="form-group edit-div" style="padding-left:10px">
+                                <label>原密码：</label>
+                                <!--<input type="text" class="form-control edit-div" id="add_instadate" />-->
+								<input type="text"   id="old_pwd" name="old_pwd"class="form-control" />
+                            </div>
+
+							<div class="form-group edit-div" style="padding-left:10px">
+                                <label>密码：</label>
+                                <!--<input type="text" class="form-control edit-div" id="add_instadate" />-->
+								<input type="text"   id="edit_pwd" name="edit_user"class="form-control" />
+                            </div>
+							
+							<div class="form-group edit-div" style="padding-left:10px">
+                                <label>确认密码：</label>
+                                <input type="text" class="form-control " id="edit_pwdYes" />
+                            </div>
+			</div>
+			<div class="modal-footer" style="text-align: center">
+			<button type="button" id="edit_pwd_exc" class="btn btn-info">修改</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+            </div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+// $(document).ready(function(){
+//
+// //左边栏的字体白色
+// $(".nav-list.collapse li a").css({"color":"white"});
+//
+// //左边栏父选项栏背景
+// $(".nav-header").css({"background-size":"100% 100%","background-image":"url(public/images/leftbuttoa3.png)"});
+//
+// //左边选项卡
+// $(".nav-list.collapse li a").css({"background-image":"url(public/images/leftbuttoa2.png)","background-size":"100% 100%"});
+//
+// 	$(".nav-list.collapse li").click(function(){
+// 		$(".nav-list.collapse li a").each(function(){
+// 			$(this).css({"background-image":"url(public/images/leftbuttoa2.png)","background-size":"100% 100%"});
+// 		  });
+// 		$(this).find(' > a').css({"background-image":"url(public/images/leftbuttoa1.png)","background-size":"100% 100%"});
+// 	});
+//
+//
+// });
+
+
+</script>
+
+
+
+
+
+
+

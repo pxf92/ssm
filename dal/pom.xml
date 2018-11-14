@@ -12,9 +12,12 @@
 
     <groupId>pxf.weixin</groupId>
     <artifactId>dal</artifactId>
-
     <packaging>jar</packaging>
     <name>dal</name>
+
+    <properties>
+        <sharding-sphere.version>3.0.0.M4</sharding-sphere.version>
+    </properties>
 
     <build>
         <plugins>
@@ -42,6 +45,17 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>io.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-core</artifactId>
+            <version>${sharding-sphere.version}</version>
+        </dependency>
+        <!-- for spring namespace -->
+        <dependency>
+            <groupId>io.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-namespace</artifactId>
+            <version>${sharding-sphere.version}</version>
+        </dependency>
         <dependency>
             <groupId>pxf.weixin</groupId>
             <artifactId>util</artifactId>

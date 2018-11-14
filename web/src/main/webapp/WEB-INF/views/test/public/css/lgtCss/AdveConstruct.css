@@ -1,0 +1,22 @@
+.modal-body input{
+		    border-radius: 0px;
+    border:1px solid #00498D;
+}
+
+.modal-body button{
+		    border-radius: 0px;
+    border:1px solid #00498D;
+
+
+}
+
+.modal-body select{
+		    border-radius: 0px;
+    border:1px solid #00498D;
+}
+
+#add_project{
+	background-image: url(../../images/buildManageBoxButton.png);
+    border: none;
+    border-radius: 3px;
+}

@@ -1,0 +1,10 @@
+.but{
+    text-align: center;
+    background: -webkit-linear-gradient(top,#bccfe3, #7eedec);
+    width: 50%;
+    border: solid;
+}
+
+.login{
+    margin-left: 400px;
+}

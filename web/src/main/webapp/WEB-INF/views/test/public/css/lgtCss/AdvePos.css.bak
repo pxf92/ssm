@@ -1,0 +1,39 @@
+/*搜索栏*/
+#msgbox{
+	min-height:150px;
+	/* height:100px; */
+	/* padding: 20px; */
+	
+}
+
+#opera-bar{
+	/* height:100px; */
+	min-height:250px;
+}
+
+#search-info .form-inline>div{
+	height:45px;
+	line-height:45px;
+}
+#opera-bar .form-inline>div{
+	height:33px;
+}
+
+.modal-body input{
+		    border-radius: 0px;
+    border:1px solid #00498D;
+}
+
+.modal-body button{
+		    border-radius: 0px;
+    border:1px solid #00498D;
+}
+
+.modal-body select{
+		    border-radius: 0px;
+    border:1px solid #00498D;
+}
+
+#showSite{
+	
+}

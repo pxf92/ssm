@@ -1,0 +1,52 @@
+#main-menu a{
+	line-height:41px;
+	color:#434343;
+	
+	float: left;
+}
+
+#main-menu li{
+	margin-left: 10px;
+}
+
+#main-menu img{
+    float: left;
+        
+}
+
+.collapse li a span{
+	color:white;
+	
+}
+
+
+
+.nav-list.collapse li a{
+	background-image:url(__IMAGE__/leftbuttoa2.png);
+	background-size:100% 100%;
+}
+
+span.fa.fa-caret-right {
+    visibility: hidden;
+}
+
+.nav-header.collapsed {
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: 17px;
+    padding: 5px 0;
+    letter-spacing: 8px;
+	text-decoration: none;
+	
+}
+
+.sidebar-nav .nav-header {
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: 17px;
+    padding: 5px 10% 5px 0px;
+    letter-spacing: 8px;
+	text-decoration: none;
+}

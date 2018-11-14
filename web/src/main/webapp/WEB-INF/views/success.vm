@@ -1,6 +1,7 @@
-<html>
-	请求成功
-	#if(${message})
-		${message}
+<div class="container alert-info">
+	#if(${msg})
+		${msg}
+	#else
+		请求成功！
 	#end
-</html>
+</div>

@@ -1,0 +1,38 @@
+body{
+    margin-bottom: 60px;
+}
+ol, ul {
+    list-style: none;
+    margin: 0 0 0 0;
+}
+.fl {
+    float: left;
+    display: inline;
+}
+.fr {
+    float: right;
+    display: inline;
+}
+
+.login{
+    text-align:center;
+    border:solid #74b3ed;
+    margin:20px 200px 20px 400px;
+    padding:10px 0 10px 0;
+    width:40%;
+}
+
+input{
+    margin-left:0;
+}
+
+.cl_1{
+    margin:10px 0 0 200px ;
+}
+tr td{
+    padding:5px 0 5px 0;
+}
+
+.form-group label{
+    padding-right: 5px;
+}

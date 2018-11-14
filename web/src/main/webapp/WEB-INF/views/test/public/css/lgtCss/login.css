@@ -1,0 +1,78 @@
+html{
+	height:100%;
+}
+
+body{
+	 /*float: left;
+    position:relative;
+    left:50%;*/
+	
+	
+	height:100%;
+	background-image:url(../../images/webimage/sky-blue.jpg);
+	background-size:100% 100%;
+}
+
+#loginBox {
+    height: 290px;
+    width: 290px;
+
+	margin:0px;
+
+	  float: left;
+    position:relative;
+    left:38%;
+
+   /* position:absolute;
+    top:400px;
+    left:1250px;*/
+
+}
+
+#loginBox-background {
+    height: 100%;
+    width: 100%;
+
+		background-image: url(../../images/webimage/loginbox.jpg);
+	margin:0px;
+
+	position:absolute;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+#loginRorm{
+	margin: 70px 10px 20px 10px;
+}
+
+#loginBoxBackground{
+    height: 350px;
+    width: 330px;
+    padding: 40px 10px;
+    background-image: url(../../images/webimage/loginbox.jpg);
+	    margin-top: -209px;
+}
+
+#Home_verif{
+    width: 40%;
+    float: left;
+}
+
+#login-button{
+    background-image: url(../../images/webimage/login.png);
+    width: 110%;
+    height: 35px;
+    background-size: 100% 100%;
+    margin: -4px 0px 0px -10px;
+	font-size: 0;
+}
+
+#loginButton{
+    margin-top: 15px;
+    width: 100%;
+    height: 34px;
+}
+
+#main-menu li a{
+	line-height:41.34px;
+}

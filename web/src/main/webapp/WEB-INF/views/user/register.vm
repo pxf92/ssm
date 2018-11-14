@@ -1,0 +1,16 @@
+<form class="form-group form-horizontal" style="text-align:center;" action="/register.htm" method="post">
+    <div class="input-group">
+        <label for="name" class="input-group-addon"><span class="glyphicon glyphicon-user" /></label>
+        <input type="text" class="form-control" id="name" name="name" value="$!user.name" placeholder="用户名"/>
+    </div>
+    <div class="input-group">
+        <label for="password" class="input-group-addon"><span class="glyphicon glyphicon-lock" /></label>
+        <input type="password" class="form-control" id="password" name="password"
+               value="$!user.name" placeholder="密码" maxlength="8"/>
+    </div>
+    <div class="input-group">
+        <label for="age" class="input-group-addon"><span class="glyphicon glyphicon-cloud" /></label>
+        <input type="number" class="form-control" id="age" name="age" value="$!user.name" placeholder="年龄" />
+    </div>
+    <button class=" btn btn-primary btn-lg" type="submit">注册</button>
+</form>

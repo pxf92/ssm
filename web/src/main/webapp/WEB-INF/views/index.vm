@@ -1,36 +1,6 @@
-<html>
+#set($page_title=("首页"))
 
-<link rel="stylesheet" type="text/css" href="style/base.css" />
-<script type="text/javascript" src="scripts/jquery-3.2.1.js"></script>
 
-<body>
-
-	<div id="header">
-        <div class="head w1366head">
-            <a class="head-logo fl" href="/" style="background: url(&quot;https://staticlive.douyucdn.cn/upload/signs/201703031609518839.png&quot;) left center no-repeat;"></a>
-
-            <ul class="head-nav fl">
-                <li class="fl index ">
-                    <a href="/index.htm" target="_blank">首页</a>
-                </li>
-                <li class="fl live current">
-                    <a href="/login.htm" >重新登录</a>
-                </li>
-                <li class="fl live current">
-                    <a href="/resetPassword.htm" >修改密码</a>
-                </li>
-                <li class="fl live current">
-                    <a href="/resetPassword2.htm" >重置密码</a>
-                </li>
-            </ul>
-
-        </div>
-	</div>
-
-	<div >
-		<p>你好 $!{user.name}!</p>
-		${date}
-    </div>
-</body>
-
-</html>
+<div class="container">
+    <h1>你好 $!{user.name}!<small>${date}</small></h1>
+</div>

@@ -1,0 +1,91 @@
+/*单元格颜色*/
+tbody tr td:first-child{
+  background-color:#427111;
+  } 
+tbody tr td:nth-child(2) {
+  background-color:#F2FDFF;
+  }
+tbody tr td:nth-child(3) {
+  background-color:#FFF3F3;
+  }
+tbody tr td:nth-child(4) {
+  background-color:#FFFAF4;
+  }
+tbody tr td:last-child {
+  background-color:#F2FDFF;
+  }
+  
+#Statistics{
+	width:94%;
+margin: 12px 0px 32px 0px;
+height:165px;
+}  
+
+#Statistics div{
+		width:27%;
+		float:left;
+    height: 165px;
+    background-size: 100% 100%;
+    line-height: 155px;
+    color: white;
+	font-size: 64px;
+}
+
+
+div#comp-num {
+    
+    background-image: url(../../images/webimage/comp-num.jpg);
+
+
+}
+
+div#media-num {
+    margin: 0px 1%;
+    background-image: url(../../images/webimage/media-num1.png);
+
+    
+}
+
+div#pos-num{
+    margin: 0px 8%;
+    background-image: url(../../images/webimage/pos-num1.png);
+
+
+}
+
+div#Expire-num {
+    margin: 0px 8%;
+    background-image: url(../../images/webimage/Expire-num1.png);
+
+
+    
+}
+
+div#use-num {
+	
+    margin: 0px 1%;
+    background-image: url(../../images/webimage/use-num1.png);
+
+    
+}
+
+div#con-num{
+    margin: 0px 8%;
+    background-image: url(../../images/webimage/con-num1.png);
+
+
+}
+
+div#free-num{
+    margin: 0px 1%;
+    background-image: url(../../images/webimage/free-num1.png);
+
+
+}
+
+div#use_rate{
+    margin: 0px 0%;
+    background-image: url(../../images/webimage/use_rate1.png);
+
+
+}

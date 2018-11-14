@@ -1,0 +1,123 @@
+#search-info>div{
+	height:45px;
+}
+
+#msgbox{
+	min-height:150px;
+
+}
+
+#search-info{
+	float:none;
+}
+
+#buildinfo-right{
+	padding: 0 15px;
+}
+
+div#buildinfo-right .form-inline {
+    height: 25%;
+}
+
+div#buildinfo-right input {
+   width:150px;
+    border: 1px solid #00498D;
+    border-radius: 0px;
+}
+
+div#buildinfo-right button {
+    border: none;
+    margin-top: 25px;
+    width: 80px;
+    height: 34px;
+    border-radius: 0px;
+    background-color: #00498D;
+	
+}
+
+
+div#buildinfo-right .form-group  {
+	width: 190px;
+}
+
+#outside_title{
+    text-align: center;
+    color: #989898;
+    font-size: 25px;
+    letter-spacing: 8px;
+}
+
+#up_image_button{
+    margin-top: 10px;
+    float: right;
+    height: 40px;
+}
+
+
+/*操作弹框*/
+.modal-header{
+    text-align: center;
+    color: #989898;
+    font-size: 25px;
+    letter-spacing: 8px;
+}
+
+#cityshow{
+	padding: 0px 40px;
+}
+
+#cityshow select{
+	
+    height: 34px;
+    border-radius: 0px;
+    border:1px solid #00498D;
+}
+
+#opera-select-box .form-inline{
+	 padding: 10px 50px 0 50px;
+}
+
+div#opera-select-box .form-inline .form-group:nth-child(2) {
+    float:right;
+}
+
+
+
+div#opera-select-box .form-inline .form-group {
+    width: 47%;
+
+}
+
+
+/*所有输入框和SELECT的长度*/
+div#opera-select-box .form-inline  select{
+    width: 100%;
+	    border-radius: 0px;
+    border:1px solid #00498D;
+}
+
+div#opera-select-box .form-inline .form-group input{
+    width: 100%;
+	    border-radius: 0px;
+    border:1px solid #00498D;
+}
+
+div#opera-select-box .form-inline .form-group .btn-group.bootstrap-select.show-tick{
+    width: 100%;
+	    border-radius: 0px;
+    border:1px solid #00498D;
+}
+
+div#opera-select-box .form-inline .form-group .btn-group.bootstrap-select.show-tick button{
+    width: 100%;
+	    border-radius: 0px;
+    
+}
+
+
+.modal-footer button{
+    background-image: url(../../images/buildManageBoxButton.png);
+    border: none;
+    border-radius: 3px;
+	width: 110px;
+}

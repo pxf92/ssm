@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexAction {
 
     @RequestMapping("index")
-    @ResponseBody
     public String index(){
-        return "welcome";
+        return "index";
     }
 
+    @RequestMapping("test")
+    public String test(){
+        return "test";
+    }
 }

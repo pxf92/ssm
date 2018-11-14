@@ -1,5 +1,102 @@
-<html>
+<div class="container">
 
-welcome to test page!
+    <ul class="nav nav-pills nav-justified">
+        <li class=""><a href="/index.htm" >首页</a></li>
+        <li><a href="/test.html">测试主页</a></li>
+        <li class="active"><a href="#">账号</a></li>
+        <li><a href="#">帮助</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                下拉菜单 <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Swing</a></li>
+                <li><a href="#">jMeter</a></li>
+                <li><a href="#">EJB</a></li>
+                <li class="divider"></li>
+                <li><a href="#">分离的链接</a></li>
+            </ul>
+        </li>
+    </ul><br/>
 
-</html>
+    <div class="table-responsive">
+        <table class="table" >
+            <caption>上下文表格布局</caption>
+            <tbody>
+            <tr class="success">
+                <td>1</td>
+                <td>Anna</td>
+            </tr>
+            <tr class="info">
+                <td >2</td>
+                <td>Debbie</td>
+            </tr>
+            <tr class="warning">
+                <td>3</td>
+                <td>John</td>
+            </tr>
+            <tr class="danger">
+                <td>3</td>
+                <td>John</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="image" style="width: 600px;height:400px;"></div>
+    <div id="image2" style="width: 600px;height:400px;"></div>
+</div>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('image'));
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: 'ECharts 入门示例'
+        },
+        tooltip: {},
+        legend: {
+            data:['销量']
+        },
+        xAxis: {
+            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        },
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+    myChart = echarts.init(document.getElementById('image2'));
+    myChart.setOption({
+        series : [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius: '55%',
+                data:[
+                    {value:235, name:'视频广告'},
+                    {value:274, name:'联盟广告'},
+                    {value:310, name:'邮件营销'},
+                    {value:335, name:'直接访问'},
+                    {value:400, name:'搜索引擎'}
+                ]
+            }
+        ],
+        // itemStyle: {
+        //     // 阴影的大小
+        //     shadowBlur: 200,
+        //     // 阴影水平方向上的偏移
+        //     shadowOffsetX: 0,
+        //     // 阴影垂直方向上的偏移
+        //     shadowOffsetY: 0,
+        //     // 阴影颜色
+        //     shadowColor: 'rgba(0, 0, 0, 0.5)'
+        // }
+    })
+</script>

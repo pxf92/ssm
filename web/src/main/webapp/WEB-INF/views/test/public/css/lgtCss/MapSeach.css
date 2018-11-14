@@ -1,0 +1,23 @@
+.tools_box div{
+	padding:0;
+}
+
+.Arrow{
+    width: 5%;
+    height: 32px;
+    background-image: url(../../images/Arrow.png);
+    float: left;
+    background-size: 100% 100%;
+}
+
+.tools_box .form-inline>div {
+    float: left;
+}
+
+
+
+#build_info{
+    margin: 0px 50px;
+    font-size: 18px;
+    
+}

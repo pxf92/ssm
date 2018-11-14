@@ -1,0 +1,23 @@
+<html>
+
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/layout.css" />
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/echarts.js"></script>
+
+<body>
+    <div class="content">
+        #parse("/common/header2.vm")
+        <div class="content-main container">
+            $screen_content
+        </div>
+        #parse("common/footer.vm")
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<div class="navbar-static-top bgc1">
+    <ul class="nav nav-pills">
+        <li >
+            <a href="/index.htm" target="_blank">首页</a>
+        </li>
+        <li >
+            <a href="/login.htm" >重新登录</a>
+        </li>
+        <li >
+            <a href="/resetPassword.htm" >修改密码</a>
+        </li>
+        <li >
+            <a href="/resetPassword2.htm" >重置密码</a>
+        </li>
+        <li >
+            <a href="/test.htm" target="_blank" >测试页面</a>
+        </li>
+        <div class="tr">
+            <a href="#" >螃蟹峰</a>
+        </div>
+    </ul>
+</div>

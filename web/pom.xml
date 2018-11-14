@@ -10,7 +10,6 @@
         <version>1.0.0</version>
     </parent>
 
-    <groupId>pxf.weixin</groupId>
     <artifactId>web</artifactId>
     <packaging>war</packaging>
 
@@ -20,6 +19,18 @@
         <dependency>
             <groupId>pxf.weixin</groupId>
             <artifactId>service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-tools</artifactId>
         </dependency>
     </dependencies>
 
