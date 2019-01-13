@@ -79,7 +79,6 @@
 	<sharding:inline-strategy id="databaseStrategy" sharding-column="id" algorithm-expression="ds$->{id % 2}" />
 	<!-- 分表算法 -->
 	<sharding:inline-strategy id="orderTableStrategy" sharding-column="age" algorithm-expression="user_$->{age % 2}" />
-
 	<sharding:data-source id="dataSource">
 		<sharding:sharding-rule data-source-names="ds0,ds1" default-data-source-name="ds0">
 			<sharding:table-rules>
@@ -98,13 +97,11 @@
 		<!-- 实体类映射文件路径,这里只有一个就写死了，多个可以使用mybatis/*.xml来替代 -->
 		<property name="mapperLocations" value="classpath:mybatis/*.xml" />
 	</bean>
-
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0">
 			<ref bean="sqlSessionFactory" />
 		</constructor-arg>
 	</bean>
-
 	<!--动态代理实现 不用写dao的实现 -->
 	<bean id="MapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 这里的basePackage 指定了dao层接口路劲，这里的dao接口不用自己实现 -->
@@ -115,7 +112,6 @@
 		<!--直接指定了sqlsessionTemplate名称，这个和上面的其实是一样的 -->
 		<!-- <property name="sqlSessionTemplateBeanName" value="sqlSession" /> -->
 	</bean>
-
 	<!--事务管理器 -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
